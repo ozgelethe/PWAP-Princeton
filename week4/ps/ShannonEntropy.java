@@ -17,9 +17,18 @@ public class ShannonEntropy {
         double shannon = 0.0;
 
         for (int i = 1; i < m; i++) {
-            if (elements[i] == 0;)
-        }
+            if (elements[i] == 0) {shannon = shannon + 0.0;}
+            else {
+                //System.out.println("value:" +values[i]);
+                double p = (double) elements[i]/count;
+                //System.out.println("probability:" + p);
+                double temp = (p) * (Math.log(p) / Math.log(2));
+                //System.out.println("temp =" + temp);
+                shannon = shannon - temp;
 
+            }
+        }
+        StdOut.printf("%.4f\n", shannon);
 
     }
 }
