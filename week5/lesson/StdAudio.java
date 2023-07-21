@@ -319,12 +319,12 @@ public final class StdAudio {
     /**
      * Closes standard audio.
      */
-/*
+
     public static void close() {
         drain();
         line.stop();
     }
-*/
+
     /**
      * Writes one sample (between –1.0 and +1.0) to standard audio.
      * If the sample is outside the range, it will be clipped
