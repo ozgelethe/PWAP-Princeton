@@ -1,3 +1,5 @@
+package week3.lesson;
+
 public class coupon {
     public static void main(String[] args)
     {

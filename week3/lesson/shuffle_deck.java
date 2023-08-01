@@ -1,3 +1,5 @@
+package week3.lesson;
+
 public class shuffle_deck {
     public static void main(String[] args) 
     {

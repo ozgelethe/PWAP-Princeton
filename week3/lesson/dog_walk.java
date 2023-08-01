@@ -1,3 +1,5 @@
+package week3.lesson;
+
 public class dog_walk {
     public static void main(String[] args) 
     {

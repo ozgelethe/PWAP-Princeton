@@ -1,3 +1,5 @@
+package week3.lesson;
+
 public class draw_cards {
     public static void main(String[] args) 
     {

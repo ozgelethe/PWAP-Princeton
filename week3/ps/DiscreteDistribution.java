@@ -1,3 +1,5 @@
+package week3.ps;
+
 public class DiscreteDistribution {
     public static void main(String[] args) 
     {

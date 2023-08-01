@@ -1,3 +1,5 @@
+package week3.ps;
+
 public class Birthday {
     public static void main(String[] args) 
     {
