@@ -2,6 +2,16 @@ public class AudioCollage
 {
     // returns a new array that rescales a[] by a multiplicative factor of alpha
     public static double[] amplify(double[] a, double alpha)
+    {
+        double[] c = new double[a.length];
+        for (int i = 0; i < a.length; i++)
+        {
+            c[i] = a[i] * alpha;
+        }
+
+        return c[i];
+
+    }
 
     // returns a new array that is the reverse of a[]
     public static double[] reverse(double[] a)
