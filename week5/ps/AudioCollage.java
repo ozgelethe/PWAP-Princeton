@@ -110,6 +110,21 @@ public class AudioCollage
 
     // returns a new array that changesthe speed by the given factor
     public static double[] changespeed(double[] a, double alpha)
+    {
+        int n = a.length;
+        int m = (int)Math.floor(n/alpha);
+
+        double[] c = new double[m];
+        
+        for (int i = 0; i < m; i++)
+        {
+            int k = (int)Math.floor(i*alpha);
+            c[i] = a[k];
+        }
+
+        return c;
+        
+    }
 
     // creates an audio collage and plays it on standard audio
     public static void main(String[] args)
