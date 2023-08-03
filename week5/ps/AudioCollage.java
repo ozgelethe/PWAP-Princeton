@@ -23,6 +23,7 @@ public class AudioCollage
         }
 
         return c;
+
     }
 
     // returns a new array that is the concatenation of a[] and b[]
@@ -45,6 +46,7 @@ public class AudioCollage
             }
         }
         return c;
+
     }
 
     // returns a new array that is the sum of a[] and b[],
@@ -106,6 +108,7 @@ public class AudioCollage
         //         new_a[j] = 0;
         //     }
         // }
+
     }
 
     // returns a new array that changesthe speed by the given factor
@@ -123,11 +126,33 @@ public class AudioCollage
         }
 
         return c;
-        
+
     }
 
     // creates an audio collage and plays it on standard audio
     public static void main(String[] args)
+    {
+        double[] A = new double[44100];
+        double[] B = new double[44100];
+        double[] C = new double[44100];
+        double[] D = new double[44100];
+        double[] E = new double[44100];
+
+         A =  StdAudio.read("beatbox.wav");
+         B =  StdAudio.read("chimes.wav");
+         C = StdAudio.read("buzzer.wav");
+         D = StdAudio.read("cow.wav");
+         E = StdAudio.read("silence.wav");
+
+         double alpha = 1.5;
+
+         StdAudio.play(amplify(A, alpha));
+         StdAudio.play(reverse((A)));
+         StdAudio.play(reverse((B)));
+         StdAudio.play(merge(C, D));
+         StdAudio.play(mix(A, E));
+         StdAudio.play(changespeed(A, alpha));
+    }
 
 
 } 
