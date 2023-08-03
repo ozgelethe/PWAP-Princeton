@@ -4,21 +4,29 @@ public class ActivationFunction
     // retuns the heaviside function of x
     public static double heaviside(double x)
     {
-        if (x < 0.0) return 0.0;
-        else if (x == 0.0) return 0.5;
-        else if (x > 0.0) return 1.0;
+        if (x < 0) return 0.0;
+        else if (x == 0) return 0.5;
+        else if (x > 0) return 1.0;
         else return Double.NaN;
     }
 
     // returns the sigmoid fuction of x
     public static double sigmoid(double x)
     {
-        return 1 / (1 + 1 / (Math.exp(x)));
+        return 1 / (1 + (1 / (Math.exp(x))));
     }
 
     // returns the hyperbolic tangent of x
     public static double tanh(double x)
     {
+        if (x >= 20)
+        {
+            return 1.0;
+        }
+        else if (x <= -20)
+        {
+            return -1.0;
+        }
         double t = Math.exp(x);
         return (t - 1 / t) / (t + (1/t));
     }
@@ -26,15 +34,27 @@ public class ActivationFunction
     // returns the softsign function of x
     public static double softsign(double x)
     {
-        return x / (1 + Math.abs(x));
+        if (Double.isInfinite(x)) {
+            if (x > 0) 
+            {
+                return 1.0;
+            }
+            else 
+            {
+                return -1.0;
+            }
+        }
+        else {
+            return x/(1+Math.abs(x));
+        }
     }
 
     // returns the square non-linearlity function of x
     public static double sqnl(double x)
     {
         if (x <= -2) return -1.0;
-        else if (x < 0.0) return x + (x * x / 4);
-        else if (x < 2.0) return x + (x * x / 4);
+        else if (x < 0.0) return (x + (x * x / 4));
+        else if (x < 2.0) return (x - (x * x / 4));
         else if (x >= 2.0) return 1.0;
         else return Double.NaN;
 
@@ -56,7 +76,7 @@ public class ActivationFunction
             soft = Double.NaN;
             sqnl = Double.NaN;
         }
-
+        
         else 
         {
             heave = heaviside(x);
@@ -67,9 +87,15 @@ public class ActivationFunction
         }
 
         System.out.printf("%1$10s%2$s%3$s%4$s%n", "heaveside(", x, ") = ", heave);
-        System.out.printf("%1$10s%2$s%3$s%4$s%n", "sigmoid(", x, ") = ", sig);
-        System.out.printf("%1$10s%2$s%3$s%4$s%n", "tanh(", x, ") = ", tan);
-        System.out.printf("%1$10s%2$s%3$s%4$s%n", "softsign(", x, ") = ", soft);
-        System.out.printf("%1$10s%2$s%3$s%4$s%n", "sqnl(", x, ") = ", sqnl);
+         System.out.printf("%1$10s%2$s%3$s%4$s%n", "sigmoid(", x, ") = ", sig);
+         System.out.printf("%1$10s%2$s%3$s%4$s%n", "tanh(", x, ") = ", tan);
+         System.out.printf("%1$10s%2$s%3$s%4$s%n", "softsign(", x, ") = ", soft);
+         System.out.printf("%1$10s%2$s%3$s%4$s%n", "sqnl(", x, ") = ", sqnl);
+
+        // System.out.println("heaveside(" + x + ") = " + heave);
+        // System.out.println("sigmoid(" + x + ") = " + sig);
+        // System.out.println("tanh(" + x + ") = " + tan);
+        // System.out.println("softsign(" + x + ") = " + soft);
+        // System.out.println("sqnl(" + x + ") = " + sqnl);
     }
 }

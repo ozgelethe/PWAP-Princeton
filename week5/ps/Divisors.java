@@ -8,17 +8,17 @@ public class Divisors
             return 0;
         }
 
-        a = Math.abs(a);
-        b = Math.abs(b);
+        int new_a = Math.abs(a);
+        int new_b = Math.abs(b);
 
-        while (b != 0)
+        while (new_b != 0)
         {
-            int t = b;
-            b = a % b;
-            a = t;
+            int t = new_b;
+            new_b = new_a % new_b;
+            new_a = t;
         }
 
-        return a;
+        return new_a;
         
     }
 
@@ -30,12 +30,12 @@ public class Divisors
             return 0;
         }
 
-        a = Math.abs(a);
-        b = Math.abs(b);
+        int new_a = Math.abs(a);
+        int new_b = Math.abs(b);
 
-        int lc = a / gcd(a, b);
+        int lc = new_a / gcd(new_a, new_b);
 
-        lc = lc * b;
+        lc = lc * new_b;
 
         return lc;
     }
@@ -64,7 +64,7 @@ public class Divisors
         {
             int count = 0;
 
-            for (int i = 1; i < n; i++)
+            for (int i = 1; i <= n; i++)
             {
                 if (areRelativelyPrime(i, n))
                 {

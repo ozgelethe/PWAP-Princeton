@@ -16,10 +16,11 @@ public class AudioCollage
     // returns a new array that is the reverse of a[]
     public static double[] reverse(double[] a)
     {
-        double c[] = new double[a.length];
-        for (int i = 0; i < a.length; i++)
+        double[] c = new double[a.length];
+        int n = a.length;
+        for (int i = n - 1; i >= 0; i--)
         {
-            c[i] = a[a.length - i];
+            c[n-i-1] = a[i];
         }
 
         return c;
@@ -29,11 +30,11 @@ public class AudioCollage
     // returns a new array that is the concatenation of a[] and b[]
     public static double[] merge(double[] a, double[] b)
     {
-        int l = a.length + b.length;
+        int len = a.length + b.length;
 
-        double[] c = new double[l];
+        double[] c = new double[len];
 
-        for(int i = 0; i < l; i++)
+        for (int i = 0; i < len; i++)
         {
             if (i < a.length)
             {
@@ -42,7 +43,7 @@ public class AudioCollage
 
             else
             {
-                c[i] = b[b.length+i-l];
+                c[i] = b[b.length+i-len];
             }
         }
         return c;
@@ -53,10 +54,10 @@ public class AudioCollage
     // padding the shorter arrays with trailling 0s if necessary
     public static double[] mix(double[] a, double[] b)
     {
-        int l = a.length > b.length? a.length:b.length;
+        int len = a.length > b.length ? a.length : b.length;
 
-        double[] new_a = new double[l];
-        double[] new_b = new double[l];
+        double[] new_a = new double[len];
+        double[] new_b = new double[len];
         
         for (int i = 0;i < a.length; i++)
         {
@@ -68,9 +69,9 @@ public class AudioCollage
             new_b[i] = b[i];
         }
 
-        double[] c = new double[l];
+        double[] c = new double[len];
 
-        for ( int i = 0; i < l; i++)
+        for ( int i = 0; i < len; i++)
         {
             c[i] = new_a[i] + new_b[i];
         }
@@ -112,7 +113,7 @@ public class AudioCollage
     }
 
     // returns a new array that changesthe speed by the given factor
-    public static double[] changespeed(double[] a, double alpha)
+    public static double[] changeSpeed(double[] a, double alpha)
     {
         int n = a.length;
         int m = (int)Math.floor(n/alpha);
@@ -151,7 +152,7 @@ public class AudioCollage
          StdAudio.play(reverse((B)));
          StdAudio.play(merge(C, D));
          StdAudio.play(mix(A, E));
-         StdAudio.play(changespeed(A, alpha));
+         StdAudio.play(changeSpeed(A, alpha));
     }
 
 

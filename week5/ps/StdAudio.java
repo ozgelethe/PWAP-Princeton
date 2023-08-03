@@ -750,4 +750,7 @@ public final class StdAudio {
         // until all the sound leaves the speaker.
         StdAudio.drain();
     }
+
+    public static void close() {
+    }
 }
